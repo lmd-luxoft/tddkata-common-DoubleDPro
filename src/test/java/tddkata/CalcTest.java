@@ -11,7 +11,7 @@ class CalcTest {
   void calcEmptyString() {
     Calc calc = new Calc();
     int actual = calc.sum("");
-    int expected = 0;
+    int expected = -1;
     assertEquals(expected, actual);
   }
 
