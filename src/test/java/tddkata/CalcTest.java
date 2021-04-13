@@ -57,5 +57,29 @@ class CalcTest {
     assertNotEquals(expected, actual);
   }
 
+  @Test
+  void calcThreeParam() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1, 2, 3");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcIncorrectParam() {
+    Calc calc = new Calc();
+    int actual = calc.sum("Hello!");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcIncorrectDelimeter() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1; 2; 3");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
 
 }
