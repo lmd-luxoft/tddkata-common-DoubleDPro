@@ -1,6 +1,7 @@
 package tddkata;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.Calendar;
 import org.junit.jupiter.api.Assertions;
@@ -21,7 +22,7 @@ class CalcTest {
     Calc calc = new Calc();
     int actual = calc.sum("");
     int expected = 1;
-    assertEquals(expected, actual);
+    assertNotEquals(expected, actual);
   }
 
   @Test
@@ -37,7 +38,7 @@ class CalcTest {
     Calc calc = new Calc();
     int actual = calc.sum("1");
     int expected = 2;
-    assertEquals(expected, actual);
+    assertNotEquals(expected, actual);
   }
 
   @Test
@@ -53,7 +54,7 @@ class CalcTest {
     Calc calc = new Calc();
     int actual = calc.sum("1, 2");
     int expected = 4;
-    assertEquals(expected, actual);
+    assertNotEquals(expected, actual);
   }
 
 
