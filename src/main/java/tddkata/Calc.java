@@ -2,7 +2,7 @@ package tddkata;
 
 public class Calc {
 
-  public int calc(int a, int b) {
+  public int sum(String expression) {
     throw new UnsupportedOperationException();
   }
 
