@@ -103,5 +103,13 @@ class CalcTest {
     assertEquals(expected, actual);
   }
 
+  @Test
+  void calcNullExpression() {
+    Calc calc = new Calc();
+    int actual = calc.sum(null);
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
 
 }
