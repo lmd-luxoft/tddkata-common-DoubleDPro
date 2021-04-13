@@ -59,7 +59,7 @@ class CalcTest {
   void calcThreeParam() {
     Calc calc = new Calc();
     int actual = calc.sum("1, 2, 3");
-    int expected = -1;
+    int expected = 6;
     assertEquals(expected, actual);
   }
 
@@ -109,6 +109,30 @@ class CalcTest {
     int actual = calc.sum(null);
     int expected = -1;
     assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcUnknownAmountParams() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1, 2, 3, 4, 5");
+    int expected = 15;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcUnknownAmountParamsNegative() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1, 2, 3, 4, 5, 6, 7");
+    int expected = 20;
+    assertNotEquals(expected, actual);
+  }
+
+  @Test
+  void calcUnknownAmountParamsWrongParams() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1, Hello, 3, 4, Hello, 6, 7");
+    int expected = -1;
+    assertNotEquals(expected, actual);
   }
 
 
