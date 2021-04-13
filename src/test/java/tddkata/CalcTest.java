@@ -3,8 +3,6 @@ package tddkata;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import java.util.Calendar;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CalcTest {
@@ -77,6 +75,30 @@ class CalcTest {
   void calcIncorrectDelimeter() {
     Calc calc = new Calc();
     int actual = calc.sum("1; 2; 3");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcWrongFirstParameter() {
+    Calc calc = new Calc();
+    int actual = calc.sum("Hello, 2");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcWrongSecondParameter() {
+    Calc calc = new Calc();
+    int actual = calc.sum("2, Hello");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcWrongTwoParameters() {
+    Calc calc = new Calc();
+    int actual = calc.sum("Hello, Hello");
     int expected = -1;
     assertEquals(expected, actual);
   }
