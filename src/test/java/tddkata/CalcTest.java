@@ -42,7 +42,7 @@ class CalcTest {
   @Test
   void calcTwoParam() {
     Calc calc = new Calc();
-    int actual = calc.sum("1, 2");
+    int actual = calc.sum("1,2");
     int expected = 3;
     assertEquals(expected, actual);
   }
@@ -58,7 +58,7 @@ class CalcTest {
   @Test
   void calcThreeParam() {
     Calc calc = new Calc();
-    int actual = calc.sum("1, 2, 3");
+    int actual = calc.sum("1,2,3");
     int expected = 6;
     assertEquals(expected, actual);
   }
@@ -114,7 +114,7 @@ class CalcTest {
   @Test
   void calcUnknownAmountParams() {
     Calc calc = new Calc();
-    int actual = calc.sum("1, 2, 3, 4, 5");
+    int actual = calc.sum("1,2,3,4,5");
     int expected = 15;
     assertEquals(expected, actual);
   }
@@ -130,9 +130,9 @@ class CalcTest {
   @Test
   void calcUnknownAmountParamsWrongParams() {
     Calc calc = new Calc();
-    int actual = calc.sum("1, Hello, 3, 4, Hello, 6, 7");
+    int actual = calc.sum("1,Hello,3,4,Hello,6,7");
     int expected = -1;
-    assertNotEquals(expected, actual);
+    assertEquals(expected, actual);
   }
 
   @Test
@@ -154,7 +154,7 @@ class CalcTest {
   @Test
   void calcTwoDelimiter() {
     Calc calc = new Calc();
-    int actual = calc.sum("1, 2 \n 3");
+    int actual = calc.sum("1,2\n3");
     int expected = 6;
     assertEquals(expected, actual);
   }
@@ -170,7 +170,7 @@ class CalcTest {
   @Test
   void calcTwoDelimeterN() {
     Calc calc = new Calc();
-    int actual = calc.sum("1\n 3");
+    int actual = calc.sum("1\n3");
     int expected = 4;
     assertEquals(expected, actual);
   }
