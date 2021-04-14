@@ -191,5 +191,46 @@ class CalcTest {
     assertEquals(expected, actual);
   }
 
+  // 4 задание
+
+  @Test
+  void calcOptionalDelimiter() {
+    Calc calc = new Calc();
+    int actual = calc.sum("//;\n1;2");
+    int expected = 3;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcOptionalDelimiterIncorrect() {
+    Calc calc = new Calc();
+    int actual = calc.sum("//;\n1,2,3;5");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcOptionalDelimeterIncorrectN() {
+    Calc calc = new Calc();
+    int actual = calc.sum("//;\1,2,3;5");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcOptionalDelimiterWrongExpression() {
+    Calc calc = new Calc();
+    int actual = calc.sum("//;\n1;;3;5");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcOptionalDelimiterWrongFormat() {
+    Calc calc = new Calc();
+    int actual = calc.sum("/;\n1;3;5");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
 
 }
