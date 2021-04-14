@@ -135,5 +135,61 @@ class CalcTest {
     assertNotEquals(expected, actual);
   }
 
+  @Test
+  void calcUnknownAmountParamsEmptyParams() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1, 2, , 3, , 5");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcUnknownAmountParamsWrongDelimiter() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1;2;3;4");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcTwoDelimiter() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1, 2 \n 3");
+    int expected = 6;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcTwoDelimeterNegative() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1, 2, \n 3");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcTwoDelimeterN() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1\n 3");
+    int expected = 4;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcTwoDelimeterIncorrectOne() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1; 2, \n 3");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  void calcTwoDelimeterOneArgument() {
+    Calc calc = new Calc();
+    int actual = calc.sum("1;\n");
+    int expected = -1;
+    assertEquals(expected, actual);
+  }
+
 
 }
